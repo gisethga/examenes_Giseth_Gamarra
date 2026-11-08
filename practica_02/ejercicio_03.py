@@ -61,13 +61,15 @@ def registrar_lista():
     return lista
 
 
-def cnslta_indice(lista, indice):
-
+def cnslta_indice(lista):
+    indice = int(input("Ingrese un índice válido para consultar: "))
     while True:
         try:
-            return lista[indice]
+            rslt_cnslta = lista[indice]
+            print(f"La posición {indice} de la lista es: {rslt_cnslta}.")
+            return rslt_cnslta
         except IndexError:
-            print(f"Error: La posición {indice} no existe en la lista. \n La lista tiene {len(lista)} elementos.")
+            print(f"Error: La posición {indice} no existe en la lista. La lista tiene {len(lista)} elementos.")
             try:
                 indice = int(input("Ingrese un nuevo índice válido para consultar: "))
             except ValueError:
@@ -76,11 +78,13 @@ def cnslta_indice(lista, indice):
 
 
 
-"""
-print("Ingrese los números para sumar y dividir:")
+
+
+print("\n--Ingrese los números para sumar y dividir--")
 n1, n2 = valores()
 suma = suma(n1, n2)
 division = division(n1, n2)
-"""
-print("Prueba de lista:")
+
+print("\n\n--Prueba de lista--")
 lista = registrar_lista()
+cnslta_indice(lista)
